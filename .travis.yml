@@ -4,8 +4,8 @@ python:
 # command to install dependencies
 install: #"pip install -r requirements.txt"
 #- pip install -r requirements.txt
-- pip install setuptools
-- pip3 install pip
+- pip3 install setuptools
+- pip3 install --user pip
 #- python3 -m pip install --upgrade pip
 - pip install --user mock==2.0
 - pip install --user coverage
