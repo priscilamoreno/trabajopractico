@@ -4,13 +4,12 @@ python:
 # command to install dependencies
 install: #"pip install -r requirements.txt"
 #- pip install -r requirements.txt
-- pip install --user pip3.7
+
 #- python3 -m pip install --upgrade pip
 - pip3 install --user mock==2.0
 - pip3 install --user coverage
 #- pip
 # command to run tests
 script:
-- coverage run testing/test.py
-- coverage run testing/test_sut.py
+- coverage run test.py
 - coverage report
