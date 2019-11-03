@@ -10,11 +10,20 @@ install: #"pip install -r requirements.txt"
 - sudo pip3 install virtualenv 
 - pip3 install --upgrade pip
 #- sudo apt-get install python3.7
+-  travis_retry pip install tox-travis
+- GLOB sdist-make: /home/travis/build/atugushev/pip-tools/setup.py
+- py37-piplatest-coverage create: /home/travis/build/atugushev/pip-tools/.tox/py37-piplatest-coverage
+- py37-piplatest-coverage installdeps: pip, mock, pytest, pytest-cov
+- py37-piplatest-coverage inst: /home/travis/build/atugushev/pip-tools/.tox/.tmp/package/1/pip-tools-0.1.dev152+g9e31b63.zip
+- py37-piplatest-coverage installed: atomicwrites==1.3.0,attrs==19.1.0,Click==7.0,coverage==4.5.3,importlib-metadata==0.18,mock==3.0.5,more-itertools==7.2.0,packaging==19.0,pip-tools==0.1.dev152+g9e31b63,pluggy==0.12.0,py==1.8.0,pyparsing==2.4.1.1,pytest==5.0.1,pytest-cov==2.7.1,six==1.12.0,wcwidth==0.1.7,zipp==0.5.2
+- py37-piplatest-coverage run-test-pre: PYTHONHASHSEED='3730529186'
+- py37-piplatest-coverage run-test: commands[0] | pip --version
+- py37-piplatest-coverage run-test: commands[1] | pyte
 - source ~/virtualenv/python3.7/bin/activate
 - python --version
 - export PIP=latest
-- pip3 install --user mock==2.0
-- pip3 install --user coverage
+#- pip3 install --user mock==2.0
+#- pip3 install --user coverage
 #- pip
 # command to run tests
 script:
